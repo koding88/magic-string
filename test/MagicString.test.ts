@@ -1611,6 +1611,11 @@ describe('magicString', () => {
       const sUpdate = new MagicString('problems = 99')
       sUpdate.update(-100, 5, 'solution')
       assert.equal(sUpdate.toString(), 'solutionems = 99')
+
+      const sReset = new MagicString('problems = 99')
+      sReset.update(0, 5, 'XXXXX')
+      sReset.reset(-100, 5)
+      assert.equal(sReset.toString(), 'problems = 99')
     })
 
     it('includes inserted characters, respecting insertion direction', () => {
